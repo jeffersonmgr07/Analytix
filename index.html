@@ -970,4 +970,509 @@
       }
 
       .testimonial-grid {
-        grid-template-columns
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .benefits-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .hero {
+        padding-bottom: 3rem;
+      }
+
+      section {
+        padding: 3rem 0;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-meta {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.9rem;
+      }
+
+      .hero-card {
+        padding: 1.1rem 1rem 1rem;
+      }
+
+      .hero-metrics {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .form-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="navbar-inner">
+        <a href="#top" class="brand">
+          <div class="brand-logo">Ax</div>
+          <div>
+            <div class="brand-text-main">Analytix</div>
+            <div class="brand-text-sub">Data-Driven Studio</div>
+          </div>
+        </a>
+
+        <nav class="nav-links" aria-label="Navegación principal">
+          <a href="#about">Quiénes somos</a>
+          <a href="#how">Cómo funciona</a>
+          <a href="#testimonials">Testimonios</a>
+          <a href="#demo" class="nav-cta">Solicitar demo</a>
+        </nav>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+          <span></span>
+        </button>
+      </div>
+
+      <nav class="nav-links-mobile" id="navMobile" aria-label="Navegación móvil">
+        <a href="#about">Quiénes somos</a>
+        <a href="#how">Cómo funciona</a>
+        <a href="#testimonials">Testimonios</a>
+        <a href="#demo">Solicitar demo</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-inner">
+            <div class="hero-copy">
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                Analytix · Inteligencia de datos
+              </div>
+
+              <h1 class="hero-title">
+                La forma más inteligente de
+                <span>administrar tus datos</span>
+              </h1>
+
+              <p class="hero-subtitle">
+                Digitalizamos tu negocio con soluciones basadas en datos: desarrollo web, apps, software a medida, SEO y
+                marketing digital. Convierte tus indicadores en decisiones, no en reportes olvidados.
+              </p>
+
+              <div class="hero-badges">
+                <span class="hero-badge">Desarrollo web &amp; apps</span>
+                <span class="hero-badge">Dashboards &amp; analítica</span>
+                <span class="hero-badge">Automatización &amp; integraciones</span>
+              </div>
+
+              <div class="hero-cta">
+                <a href="#demo" class="btn-primary">
+                  Digitaliza tu negocio
+                  <span class="btn-icon">↗</span>
+                </a>
+                <a href="#how" class="btn-ghost">
+                  Ver cómo funciona
+                </a>
+              </div>
+
+              <div class="hero-meta">
+                <span>+50%</span> crecimiento promedio en indicadores clave en los primeros 6 meses para nuestros clientes.
+              </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+              <div class="hero-card">
+                <div class="hero-card-header">
+                  <div>
+                    <div class="hero-card-title">Panel en tiempo real</div>
+                    <div class="hero-meta" style="font-size: 0.72rem;">
+                      Ventas · Marketing · Operaciones
+                    </div>
+                  </div>
+                  <div class="hero-card-pill">
+                    <span class="hero-card-pill-dot"></span>
+                    Live data
+                  </div>
+                </div>
+
+                <div class="hero-metrics">
+                  <div class="metric-card">
+                    <div class="metric-label">Ingresos mensuales</div>
+                    <div class="metric-value">$124k</div>
+                    <div class="metric-trend">+32% este trimestre</div>
+                  </div>
+                  <div class="metric-card">
+                    <div class="metric-label">Conversion rate</div>
+                    <div class="metric-value">4.8%</div>
+                    <div class="metric-trend">+1.4 pts</div>
+                  </div>
+                  <div class="metric-card">
+                    <div class="metric-label">Costo por lead</div>
+                    <div class="metric-value">$2.15</div>
+                    <div class="metric-trend down">-27%</div>
+                  </div>
+                  <div class="metric-card">
+                    <div class="metric-label">Tiempo de respuesta</div>
+                    <div class="metric-value">3 min</div>
+                    <div class="metric-trend">Automatizado</div>
+                  </div>
+                </div>
+
+                <div class="hero-chart">
+                  <div class="hero-bar"></div>
+                  <div class="hero-bar"></div>
+                  <div class="hero-bar"></div>
+                  <div class="hero-bar"></div>
+                  <div class="hero-bar"></div>
+                  <div class="hero-bar"></div>
+                </div>
+
+                <div class="hero-floating">
+                  <div class="hero-widget">
+                    <span class="hero-widget-pill">Smart</span>
+                    <span>Tu negocio, pero con decisiones basadas en datos.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUIÉNES SOMOS -->
+      <section class="about" id="about">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Quiénes somos</div>
+            <h2 class="section-title">Una forma nueva de entender tus datos</h2>
+            <p class="section-description">
+              Somos un estudio digital que combina analítica, diseño y desarrollo para construir experiencias que
+              convierten datos en crecimiento real.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-text">
+              <h3>Somos la alternativa para digitalizar tu negocio</h3>
+              <p>
+                Te acompañamos desde la idea hasta el producto final. Conectamos tus fuentes de información, diseñamos
+                indicadores accionables y construimos las herramientas que tu equipo necesita para tomar decisiones
+                todos los días.
+              </p>
+              <p>
+                Trabajamos con startups, pymes y corporativos que quieren dejar de operar “a ciegas” y empezar a medir,
+                experimentar y optimizar.
+              </p>
+
+              <ul class="about-list">
+                <li>Implementamos dashboards claros para todo tu equipo.</li>
+                <li>Automatizamos reportes repetitivos y tareas manuales.</li>
+                <li>Integramos tus sistemas (CRM, ERP, e-commerce y más).</li>
+                <li>Desarrollamos soluciones web y móviles a medida.</li>
+              </ul>
+
+              <div class="about-pill-row">
+                <span class="about-pill">Desarrollo web &amp; app</span>
+                <span class="about-pill">Software a medida</span>
+                <span class="about-pill">SEO &amp; marketing digital</span>
+                <span class="about-pill">Consultoría de datos</span>
+              </div>
+            </div>
+
+            <aside class="about-card">
+              <div class="about-card-title">Nuestra visión &amp; tecnología</div>
+              <p>
+                Creemos que cada decisión en tu negocio debe estar respaldada por datos claros, medibles y en contexto.
+                Por eso diseñamos productos donde la analítica no es un “extra”, es el corazón.
+              </p>
+
+              <div class="about-card-cols">
+                <div class="about-mini">
+                  <strong>Visión</strong>
+                  Empoderar empresas que quieren crecer de forma inteligente, conectando datos, personas y procesos en
+                  un mismo flujo.
+                </div>
+                <div class="about-mini">
+                  <strong>Tecnología</strong>
+                  Herramientas modernas de desarrollo, analítica en la nube y automatizaciones que escalan con tu
+                  negocio.
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- CÓMO FUNCIONA -->
+      <section class="how" id="how">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Cómo funciona</div>
+            <h2 class="section-title">De los datos brutos a decisiones claras</h2>
+            <p class="section-description">
+              Un flujo simple para transformar tus datos en insights accionables, sin perderte en herramientas
+              innecesarias.
+            </p>
+          </div>
+
+          <div class="how-grid">
+            <div>
+              <div class="steps">
+                <div class="step">
+                  <div class="step-index">1</div>
+                  <div>
+                    <div class="step-title">Descubrimiento &amp; diagnóstico</div>
+                    <p class="step-body">
+                      Analizamos tu negocio, tus procesos y todas las fuentes de información disponibles. Definimos los
+                      KPIs que realmente importan para ti.
+                    </p>
+                    <div class="pill-row">
+                      <span class="pill">Mapeo de datos</span>
+                      <span class="pill">KPIs &amp; objetivos</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step">
+                  <div class="step-index">2</div>
+                  <div>
+                    <div class="step-title">Diseño &amp; prototipo</div>
+                    <p class="step-body">
+                      Creamos la arquitectura de datos, el diseño del dashboard y los flujos clave. Validamos contigo
+                      antes de construir.
+                    </p>
+                    <div class="pill-row">
+                      <span class="pill">UX de datos</span>
+                      <span class="pill">Mockups interactivos</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step">
+                  <div class="step-index">3</div>
+                  <div>
+                    <div class="step-title">Implementación &amp; automatización</div>
+                    <p class="step-body">
+                      Desplegamos integraciones, dashboards y automatizaciones. Entrenamos a tu equipo y te acompañamos
+                      en las primeras iteraciones.
+                    </p>
+                    <div class="pill-row">
+                      <span class="pill">Integraciones</span>
+                      <span class="pill">Alertas &amp; workflows</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <aside class="benefits">
+              <div class="benefits-title">Resultados que puedes medir</div>
+              <div class="benefits-sub">
+                Nuestras estrategias están basadas en recolección objetiva y administración inteligente de tus datos.
+              </div>
+
+              <div class="benefits-grid">
+                <div class="benefit-item">
+                  <div class="benefit-label">Smart</div>
+                  <div class="benefit-value">
+                    Estrategias diseñadas a partir de datos reales, no intuiciones.
+                  </div>
+                </div>
+                <div class="benefit-item">
+                  <div class="benefit-label">Fast</div>
+                  <div class="benefit-value">
+                    Menos tiempo preparando reportes, más tiempo tomando acción.
+                  </div>
+                </div>
+                <div class="benefit-item">
+                  <div class="benefit-label">Escalable</div>
+                  <div class="benefit-value">
+                    Arquitectura lista para crecer con tu operación.
+                  </div>
+                </div>
+                <div class="benefit-item">
+                  <div class="benefit-label">Acompañamiento</div>
+                  <div class="benefit-value">
+                    Soporte cercano mientras tu equipo se adapta a la nueva forma de trabajar.
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIOS -->
+      <section class="testimonials" id="testimonials">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Testimonios</div>
+            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            <p class="section-description">
+              Historias reales de negocios que convirtieron sus datos en una ventaja competitiva.
+            </p>
+          </div>
+
+          <div class="testimonial-grid">
+            <article class="testimonial">
+              <p class="testimonial-body">
+                “Pasamos de tener reportes en Excel que nadie revisaba, a un panel que el equipo consulta todos los
+                días. Ahora sabemos exactamente qué campañas funcionan y cuáles debemos pausar.”
+              </p>
+              <div class="testimonial-author">Andrea R.</div>
+              <div class="testimonial-role">Directora de Marketing · e-commerce</div>
+            </article>
+
+            <article class="testimonial">
+              <p class="testimonial-body">
+                “En menos de tres meses redujimos el tiempo de generación de informes en un 70%. El equipo de Analytix
+                entendió el negocio antes de proponer soluciones.”
+              </p>
+              <div class="testimonial-author">Luis M.</div>
+              <div class="testimonial-role">CEO · Servicios B2B</div>
+            </article>
+
+            <article class="testimonial">
+              <p class="testimonial-body">
+                “Lo que más valoramos es que no solo construyen dashboards bonitos, sino procesos alrededor de ellos:
+                reuniones, alertas y flujos claros para cada área.”
+              </p>
+              <div class="testimonial-author">Carolina P.</div>
+              <div class="testimonial-role">COO · Retail</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- REQUEST DEMO -->
+      <section class="demo" id="demo">
+        <div class="container">
+          <div class="demo-grid">
+            <div class="demo-copy">
+              <div class="section-kicker">Solicitar demo</div>
+              <h3>Agenda una sesión con nuestro equipo</h3>
+              <p>
+                Cuéntanos sobre tu negocio y te mostraremos cómo podríamos centralizar tus datos y construir un panel
+                accionable en pocas semanas.
+              </p>
+              <p>
+                La demo no tiene costo y está pensada para ayudarte a visualizar oportunidades, incluso si aún no
+                decides implementar una solución completa.
+              </p>
+
+              <ul class="demo-points">
+                <li>Revisión rápida de tu contexto y objetivos.</li>
+                <li>Ideas concretas de KPIs y automatizaciones.</li>
+                <li>Roadmap sugerido para los próximos 90 días.</li>
+              </ul>
+            </div>
+
+            <form class="demo-form" action="#" method="post">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Nombre completo</label>
+                  <input id="name" name="name" type="text" placeholder="Escribe tu nombre" required />
+                </div>
+                <div class="form-group">
+                  <label for="company">Empresa</label>
+                  <input id="company" name="company" type="text" placeholder="Nombre de tu empresa" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email">Correo electrónico</label>
+                  <input id="email" name="email" type="email" placeholder="tu@empresa.com" required />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Teléfono</label>
+                  <input id="phone" name="phone" type="tel" placeholder="+51 ..." />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Cuéntanos brevemente sobre tu proyecto</label>
+                <textarea id="message" name="message" placeholder="¿Qué te gustaría medir, automatizar o mejorar?"></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 0.2rem;">
+                Enviar solicitud de demo
+              </button>
+
+              <p class="form-note">
+                Al enviar este formulario aceptas que podamos contactarte por email o teléfono para coordinar la demo.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-contact">
+            <span>¿Listo para empezar?</span>
+            <a href="mailto:info@analytix.com">info@analytix.com</a>
+            <span>Tel: +51 936 486 668</span>
+          </div>
+          <div class="footer-meta">
+            <span>© <span id="year"></span> Analytix.</span>
+            <span>Construido con datos, diseño y mucho café.</span>
+            <!-- Si quieres, cambia este enlace a tu GitHub real -->
+            <span><a href="https://github.com/" target="_blank" rel="noreferrer">Ver en GitHub</a></span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Año dinámico en el footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Menú móvil
+    const navToggle = document.getElementById("navToggle");
+    const navMobile = document.getElementById("navMobile");
+
+    navToggle.addEventListener("click", () => {
+      if (navMobile.style.display === "flex") {
+        navMobile.style.display = "none";
+      } else {
+        navMobile.style.display = "flex";
+      }
+    });
+
+    // Cerrar menú móvil al hacer clic en un enlace
+    navMobile.addEventListener("click", (e) => {
+      if (e.target.tagName === "A") {
+        navMobile.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
