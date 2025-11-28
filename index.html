@@ -462,20 +462,39 @@
       animation: floatSoft 10s ease-in-out infinite;
     }
 
-    @keyframes floatSoft {
-      0% {
-        transform: translate3d(0, 0, 0);
-        opacity: 0.4;
+          /* Duración total recomendada: 8s
+         - 2s fade A1→A2
+         - 2s pausa
+         - 2s fade A2→A1
+         - 2s pausa
+      */
+      
+      .logo-frame-1 {
+        animation: logoA1 8s ease-in-out infinite;
       }
-      50% {
-        transform: translate3d(8px, -6px, 0);
-        opacity: 0.9;
+      
+      .logo-frame-2 {
+        animation: logoA2 8s ease-in-out infinite;
       }
-      100% {
-        transform: translate3d(0, 0, 0);
-        opacity: 0.4;
+      
+      /* Logo A1 (el que empieza visible) */
+      @keyframes logoA1 {
+        0%   { opacity: 1; }     /* inicio visible */
+        25%  { opacity: 0; }     /* se desvanece 0%→25% */
+        50%  { opacity: 0; }     /* queda oculto 2s */
+        75%  { opacity: 1; }     /* vuelve 50%→75% */
+        100% { opacity: 1; }     /* queda visible 2s */
       }
-    }
+      
+      /* Logo A2 (el que empieza oculto) */
+      @keyframes logoA2 {
+        0%   { opacity: 0; }
+        25%  { opacity: 1; }     /* aparece mientras A1 desaparece */
+        50%  { opacity: 1; }     /* permanece 2s visible */
+        75%  { opacity: 0; }     /* se desvanece mientras A1 aparece */
+        100% { opacity: 0; }
+      }
+
 
     .eyebrow {
       display: inline-flex;
