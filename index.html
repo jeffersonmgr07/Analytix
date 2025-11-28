@@ -36,7 +36,7 @@
 
     body {
       font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #020617; /* fondo de respaldo si el video no carga */
+      background: #020617; /* respaldo si el video no carga */
       color: var(--text-main);
       line-height: 1.6;
       position: relative;
@@ -125,31 +125,30 @@
     /* CONTENEDOR DE LOGO ANIMADO (sin círculo) */
     .brand-logo-anim {
       position: relative;
-      height: 40px;           /* alto del logo en la cabecera */
+      height: 40px;          /* ajusta alto del logo aquí */
       display: inline-block;
-      overflow: visible;      /* que no recorte la imagen */
+      overflow: visible;
       border-radius: 0;
       background: transparent;
       box-shadow: none;
     }
-    
-    /* Imagen base y la que aparece encima */
+
     .logo-frame {
       height: 100%;
       width: auto;
       object-fit: contain;
       display: block;
     }
-    
-    /* Logo1: imagen base visible al inicio */
+
+    /* Logo base (LogoA1) */
     .logo-frame-1 {
       position: relative;
       z-index: 1;
       opacity: 1;
       animation: logoFade1 6s ease-in-out infinite;
     }
-    
-    /* Logo2: se superpone encima */
+
+    /* Logo superior (LogoA2) */
     .logo-frame-2 {
       position: absolute;
       inset: 0;
@@ -158,18 +157,16 @@
       opacity: 0;
       animation: logoFade2 6s ease-in-out infinite;
     }
-    
-    /* Animaciones (puedes dejarlas igual si ya las tenías) */
+
     @keyframes logoFade1 {
       0%, 40% { opacity: 1; }
       60%, 100% { opacity: 0; }
     }
-    
+
     @keyframes logoFade2 {
       0%, 40% { opacity: 0; }
       60%, 100% { opacity: 1; }
     }
-
 
     .nav-links {
       display: flex;
@@ -277,6 +274,110 @@
 
     .nav-links-mobile a:hover {
       color: #e5e7eb;
+    }
+
+    /* DROPDOWN "SOLUCIONES WEB" */
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-dropdown-toggle {
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      font: inherit;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .nav-dropdown-toggle:hover,
+    .nav-dropdown-toggle:focus {
+      color: #e5e7eb;
+    }
+
+    .nav-dropdown-arrow {
+      font-size: 0.7rem;
+      transition: transform 0.18s ease;
+    }
+
+    .nav-dropdown {
+      position: absolute;
+      top: 120%;
+      left: 0;
+      min-width: 260px;
+      max-width: 320px;
+      padding: 0.9rem 0.95rem;
+      border-radius: 0.9rem;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 20px 55px rgba(15, 23, 42, 0.85);
+      display: grid;
+      gap: 0.6rem;
+      opacity: 0;
+      transform: translateY(6px) scale(0.98);
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      z-index: 30;
+    }
+
+    .nav-dropdown-section h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+      margin-bottom: 0.1rem;
+    }
+
+    .nav-dropdown-section p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .nav-dropdown-wrapper.open .nav-dropdown {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .nav-dropdown-wrapper.open .nav-dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    /* Mobile: etiqueta y sublista de Soluciones Web */
+    .nav-mobile-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #9ca3af;
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+
+    .nav-mobile-sublist {
+      display: grid;
+      gap: 0.15rem;
+      margin-bottom: 0.75rem;
+      padding-left: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-mobile-sublist span::before {
+      content: "•";
+      margin-right: 0.3rem;
+      font-size: 0.7rem;
+    }
+
+    @media (max-width: 720px) {
+      .nav-dropdown {
+        display: none; /* Dropdown solo en desktop */
+      }
     }
 
     /* Hero */
@@ -1187,13 +1288,71 @@
       <div class="navbar-inner">
         <a href="#top" class="brand">
           <div class="brand-logo-anim">
-            <!-- Ajusta las extensiones si no son .png -->
+            <!-- Nuevos nombres de imágenes -->
             <img src="img/LogoA1.png" alt="Analytix logo 1" class="logo-frame logo-frame-1">
             <img src="img/LogoA2.png" alt="Analytix logo 2" class="logo-frame logo-frame-2">
           </div>
         </a>
 
         <nav class="nav-links" aria-label="Navegación principal">
+          <!-- Dropdown Soluciones Web -->
+          <div class="nav-item nav-dropdown-wrapper">
+            <button
+              class="nav-dropdown-toggle"
+              type="button"
+              id="solutionsToggle"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Soluciones Web
+              <span class="nav-dropdown-arrow">▾</span>
+            </button>
+
+            <div class="nav-dropdown" id="solutionsMenu" aria-label="Soluciones Web">
+              <div class="nav-dropdown-section">
+                <h4>Gastronomía</h4>
+                <p>Restaurantes, cafeterías, food trucks, pastelerías.</p>
+              </div>
+              <div class="nav-dropdown-section">
+                <h4>Comercio Local</h4>
+                <p>Bodegas, boutiques, ferreterías, librerías, florerías.</p>
+              </div>
+              <div class="nav-dropdown-section">
+                <h4>Servicios Profesionales</h4>
+                <p>Estudios contables, abogados, arquitectos, consultores.</p>
+              </div>
+              <div class="nav-dropdown-section">
+                <h4>Salud &amp; Bienestar</h4>
+                <p>Dentistas, clínicas, fisioterapia, spa, peluquerías.</p>
+              </div>
+              <div class="nav-dropdown-section">
+                <h4>Educación</h4>
+                <p>Colegios, academias, centros preuniversitarios.</p>
+              </div>
+              <div class="nav-dropdown-section">
+                <h4>Servicios Técnicos</h4>
+                <p>Electricistas, gasfiteros, técnicos, cerrajeros.</p>
+              </div>
+              <div class="nav-dropdown-section">
+                <h4>Transporte</h4>
+                <p>Taxis, fletes, transporte escolar, mensajería.</p>
+              </div>
+              <div class="nav-dropdown-section">
+                <h4>Eventos &amp; Creatividad</h4>
+                <p>Fotógrafos, organizadores de eventos, salones, DJs.</p>
+              </div>
+              <div class="nav-dropdown-section">
+                <h4>Organizaciones &amp; ONGs</h4>
+                <p>Asociaciones, iglesias, partidos políticos, clubes.</p>
+              </div>
+              <div class="nav-dropdown-section">
+                <h4>Emprendedores Digitales</h4>
+                <p>Freelancers, coaches, marketers, creadores de contenido.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resto de links -->
           <a href="#about">Quiénes somos</a>
           <a href="#how">Cómo funciona</a>
           <a href="#testimonials">Testimonios</a>
@@ -1205,7 +1364,22 @@
         </button>
       </div>
 
+      <!-- Navegación móvil -->
       <nav class="nav-links-mobile" id="navMobile" aria-label="Navegación móvil">
+        <span class="nav-mobile-label">Soluciones Web</span>
+        <div class="nav-mobile-sublist">
+          <span>Gastronomía</span>
+          <span>Comercio Local</span>
+          <span>Servicios Profesionales</span>
+          <span>Salud &amp; Bienestar</span>
+          <span>Educación</span>
+          <span>Servicios Técnicos</span>
+          <span>Transporte</span>
+          <span>Eventos &amp; Creatividad</span>
+          <span>Organizaciones &amp; ONGs</span>
+          <span>Emprendedores Digitales</span>
+        </div>
+
         <a href="#about">Quiénes somos</a>
         <a href="#how">Cómo funciona</a>
         <a href="#testimonials">Testimonios</a>
@@ -1632,6 +1806,35 @@
         navMobile.style.display = "none";
       }
     });
+
+    // Dropdown "Soluciones Web" (versión desktop)
+    const solutionsToggle = document.getElementById("solutionsToggle");
+    const solutionsWrapper = solutionsToggle?.closest(".nav-dropdown-wrapper");
+
+    if (solutionsToggle && solutionsWrapper) {
+      solutionsToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = solutionsWrapper.classList.contains("open");
+
+        // Cerrar cualquier otro dropdown
+        document.querySelectorAll(".nav-dropdown-wrapper.open")
+          .forEach((el) => el.classList.remove("open"));
+
+        if (!isOpen) {
+          solutionsWrapper.classList.add("open");
+          solutionsToggle.setAttribute("aria-expanded", "true");
+        } else {
+          solutionsWrapper.classList.remove("open");
+          solutionsToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      // Cerrar dropdown al hacer clic fuera
+      document.addEventListener("click", () => {
+        solutionsWrapper.classList.remove("open");
+        solutionsToggle.setAttribute("aria-expanded", "false");
+      });
+    }
   </script>
 </body>
 </html>
