@@ -36,9 +36,11 @@
 
     body {
       font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gradient(circle at top, #1f2937 0, #020617 45%, #020617 100%);
+      background: #020617; /* fondo de respaldo si el video no carga */
       color: var(--text-main);
       line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
     }
 
     a {
@@ -51,11 +53,41 @@
       display: block;
     }
 
+    /* VIDEO DE FONDO */
+    .bg-video {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .bg-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.2);
+    }
+
+    .bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at top, rgba(31, 41, 55, 0.9), rgba(2, 6, 23, 0.98)),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 1));
+      mix-blend-mode: multiply;
+      opacity: 0.95;
+    }
+
     /* Layout base */
     .page {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      position: relative;
+      z-index: 0;
     }
 
     .container {
@@ -90,29 +122,44 @@
       gap: 0.6rem;
     }
 
-    .brand-logo {
-      width: 32px;
-      height: 32px;
+    /* CONTENEDOR DE LOGO ANIMADO */
+    .brand-logo-anim {
+      width: 40px;
+      height: 40px;
       border-radius: 999px;
-      background: conic-gradient(from 210deg, #22c55e, #4f46e5, #06b6d4, #22c55e);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 18px rgba(56,189,248,0.9);
-      font-size: 0.9rem;
-      font-weight: 700;
+      overflow: hidden;
+      position: relative;
+      background: radial-gradient(circle at top left, #22c55e, #4f46e5, #06b6d4);
+      box-shadow: 0 0 18px rgba(56,189,248,0.7);
     }
 
-    .brand-text-main {
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      font-size: 0.9rem;
-      text-transform: uppercase;
+    .logo-frame {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
-    .brand-text-sub {
-      font-size: 0.7rem;
-      color: var(--text-muted);
+    /* Animaciones de fade Logo1 -> Logo2 */
+    .logo-frame-1 {
+      opacity: 1;
+      animation: logoFade1 6s ease-in-out infinite;
+    }
+
+    .logo-frame-2 {
+      opacity: 0;
+      animation: logoFade2 6s ease-in-out infinite;
+    }
+
+    @keyframes logoFade1 {
+      0%, 40% { opacity: 1; }
+      60%, 100% { opacity: 0; }
+    }
+
+    @keyframes logoFade2 {
+      0%, 40% { opacity: 0; }
+      60%, 100% { opacity: 1; }
     }
 
     .nav-links {
@@ -248,6 +295,76 @@
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
       gap: 2.5rem;
       align-items: center;
+      z-index: 1;
+    }
+
+    /* ADORNOS FLOTANTES */
+    .hero-decor {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .decor {
+      position: absolute;
+      opacity: 0.6;
+      font-size: 1rem;
+      color: rgba(148, 163, 184, 0.7);
+    }
+
+    .decor-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #a5b4fc, #4f46e5);
+      box-shadow: 0 0 12px rgba(129, 140, 248, 0.9);
+    }
+
+    .decor-dot-1 {
+      top: 18%;
+      left: 6%;
+      animation: floatSoft 9s ease-in-out infinite;
+    }
+
+    .decor-dot-2 {
+      top: 65%;
+      right: 12%;
+      animation: floatSoft 11s ease-in-out infinite;
+    }
+
+    .decor-x,
+    .decor-plus {
+      font-weight: 600;
+    }
+
+    .decor-x-1 {
+      top: 30%;
+      right: 25%;
+      font-size: 1.2rem;
+      animation: floatSoft 12s ease-in-out infinite;
+    }
+
+    .decor-plus-1 {
+      bottom: 18%;
+      left: 22%;
+      font-size: 1.4rem;
+      animation: floatSoft 10s ease-in-out infinite;
+    }
+
+    @keyframes floatSoft {
+      0% {
+        transform: translate3d(0, 0, 0);
+        opacity: 0.4;
+      }
+      50% {
+        transform: translate3d(8px, -6px, 0);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translate3d(0, 0, 0);
+        opacity: 0.4;
+      }
     }
 
     .eyebrow {
@@ -263,6 +380,8 @@
       letter-spacing: 0.16em;
       color: var(--text-muted);
       margin-bottom: 0.9rem;
+      position: relative;
+      z-index: 1;
     }
 
     .eyebrow-dot {
@@ -278,6 +397,8 @@
       line-height: 1.1;
       letter-spacing: -0.035em;
       margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-title span {
@@ -292,6 +413,8 @@
       max-width: 31rem;
       font-size: 0.98rem;
       margin-bottom: 1.7rem;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-badges {
@@ -299,6 +422,8 @@
       flex-wrap: wrap;
       gap: 0.5rem;
       margin-bottom: 1.8rem;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-badge {
@@ -316,6 +441,8 @@
       gap: 0.9rem;
       align-items: center;
       margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
     }
 
     .btn-primary,
@@ -362,6 +489,8 @@
     .hero-meta {
       font-size: 0.75rem;
       color: var(--text-muted);
+      position: relative;
+      z-index: 1;
     }
 
     .hero-meta span {
@@ -373,6 +502,7 @@
     .hero-visual {
       position: relative;
       isolation: isolate;
+      z-index: 1;
     }
 
     .hero-card {
@@ -1029,25 +1159,28 @@
   </style>
 </head>
 <body>
-  <!-- VIDEO DE FONDO -->
+  <!-- FONDO DE VIDEO -->
   <div class="bg-video">
     <video autoplay muted loop playsinline>
+      <!-- Ajusta las rutas si tus archivos están en otra carpeta -->
       <source src="assets/bg-tech.mp4" type="video/mp4" />
-      <!-- Texto alternativo si el video no carga -->
-      Tu navegador no soporta video en HTML5.
+      <source src="assets/bg-tech.mov" type="video/quicktime" />
+      Tu navegador no soporta el video de fondo.
     </video>
   </div>
+
   <!-- CAPA OSCURA ENCIMA DEL VIDEO -->
   <div class="bg-overlay"></div>
+
   <div class="page">
     <!-- NAVBAR -->
     <header class="navbar">
       <div class="navbar-inner">
         <a href="#top" class="brand">
-          <div class="brand-logo">Ax</div>
-          <div>
-            <div class="brand-text-main">Analytix</div>
-            <div class="brand-text-sub">Data-Driven Studio</div>
+          <div class="brand-logo-anim">
+            <!-- Ajusta las extensiones si no son .png -->
+            <img src="img/Logo1.png" alt="Analytix logo 1" class="logo-frame logo-frame-1">
+            <img src="img/Logo2.png" alt="Analytix logo 2" class="logo-frame logo-frame-2">
           </div>
         </a>
 
@@ -1074,6 +1207,14 @@
     <main id="top">
       <!-- HERO -->
       <section class="hero">
+        <!-- ADORNOS FLOTANTES -->
+        <div class="hero-decor">
+          <span class="decor decor-dot decor-dot-1"></span>
+          <span class="decor decor-dot decor-dot-2"></span>
+          <span class="decor decor-x decor-x-1">×</span>
+          <span class="decor decor-plus decor-plus-1">+</span>
+        </div>
+
         <div class="container">
           <div class="hero-inner">
             <div class="hero-copy">
@@ -1453,7 +1594,6 @@
           <div class="footer-meta">
             <span>© <span id="year"></span> Analytix.</span>
             <span>Construido con datos, diseño y mucho café.</span>
-            <!-- Si quieres, cambia este enlace a tu GitHub real -->
             <span><a href="https://github.com/" target="_blank" rel="noreferrer">Ver en GitHub</a></span>
           </div>
         </div>
@@ -1484,12 +1624,5 @@
       }
     });
   </script>
-      <!-- FOOTER -->
-    ...
-  </div> <!-- cierre de .page -->
-
-  <script>
-    // aquí tu JS existente
-  </script>
-  </body>
+</body>
 </html>
