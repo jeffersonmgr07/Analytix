@@ -122,45 +122,54 @@
       gap: 0.6rem;
     }
 
-    /* CONTENEDOR DE LOGO ANIMADO */
+    /* CONTENEDOR DE LOGO ANIMADO (sin círculo) */
     .brand-logo-anim {
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      overflow: hidden;
       position: relative;
-      background: radial-gradient(circle at top left, #22c55e, #4f46e5, #06b6d4);
-      box-shadow: 0 0 18px rgba(56,189,248,0.7);
+      height: 40px;           /* alto del logo en la cabecera */
+      display: inline-block;
+      overflow: visible;      /* que no recorte la imagen */
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
     }
-
+    
+    /* Imagen base y la que aparece encima */
     .logo-frame {
-      position: absolute;
-      inset: 0;
-      width: 100%;
       height: 100%;
+      width: auto;
       object-fit: contain;
+      display: block;
     }
-
-    /* Animaciones de fade Logo1 -> Logo2 */
+    
+    /* Logo1: imagen base visible al inicio */
     .logo-frame-1 {
+      position: relative;
+      z-index: 1;
       opacity: 1;
       animation: logoFade1 6s ease-in-out infinite;
     }
-
+    
+    /* Logo2: se superpone encima */
     .logo-frame-2 {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      z-index: 2;
       opacity: 0;
       animation: logoFade2 6s ease-in-out infinite;
     }
-
+    
+    /* Animaciones (puedes dejarlas igual si ya las tenías) */
     @keyframes logoFade1 {
       0%, 40% { opacity: 1; }
       60%, 100% { opacity: 0; }
     }
-
+    
     @keyframes logoFade2 {
       0%, 40% { opacity: 0; }
       60%, 100% { opacity: 1; }
     }
+
 
     .nav-links {
       display: flex;
