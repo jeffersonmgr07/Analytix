@@ -128,9 +128,6 @@
       height: 40px;          /* ajusta alto del logo aquí */
       display: inline-block;
       overflow: visible;
-      border-radius: 0;
-      background: transparent;
-      box-shadow: none;
     }
 
     .logo-frame {
@@ -392,7 +389,7 @@
     section.banner-slider {
       position: relative;
       width: 100%;
-      padding: 2rem 0 0; /* un poco menos padding arriba */
+      padding: 2rem 0 0;
     }
 
     .banner-slider-inner {
@@ -403,7 +400,7 @@
       padding: 0 1.5rem;
       border-radius: 1.5rem;
       overflow: hidden;
-      height: 260px; /* ajusta la altura según tus banners */
+      height: 380px; /* banner más alto */
       box-shadow: 0 24px 60px rgba(15, 23, 42, 0.8);
     }
 
@@ -429,17 +426,9 @@
       transform: translateX(-100%);
     }
 
-    /* Capa oscura encima de la imagen */
+    /* (Overlay eliminado visualmente: sin opacidad delante del banner) */
     .banner-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        120deg,
-        rgba(15, 23, 42, 0.85),
-        rgba(15, 23, 42, 0.35),
-        rgba(15, 23, 42, 0.85)
-      );
-      pointer-events: none;
+      display: none;
     }
 
     /* Contenedor del texto */
@@ -471,29 +460,28 @@
       text-align: right;
     }
 
-    /* Bloque con fondo resaltado */
+    /* Texto sin recuadro: solo texto directo */
     .banner-text-content {
       display: inline-block;
       max-width: 70%;
-      background: rgba(15, 23, 42, 0.75);
-      padding: 0.9rem 1.3rem 1rem;
-      border-radius: 1rem;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+      background: transparent;      /* sin fondo */
+      padding: 0;                   /* sin padding de caja */
+      border: none;                 /* sin borde */
+      box-shadow: none;             /* sin sombra de recuadro */
       position: relative;
     }
 
     /* Título y subtítulo */
     .banner-title {
-      font-size: 1.4rem;
+      font-size: 1.7rem;
       font-weight: 600;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.35rem;
       color: #ffffff;
     }
 
     .banner-subtitle {
-      font-size: 0.95rem;
-      color: #e5e7eb;
+      font-size: 1rem;
+      color: #f3f4f6;
     }
 
     /* Cursor de texto */
@@ -1352,20 +1340,19 @@
 
     @media (max-width: 768px) {
       .banner-slider-inner {
-        height: 220px;
+        height: 320px;
       }
 
       .banner-text-content {
         max-width: 90%;
-        padding: 0.8rem 1rem 0.9rem;
       }
 
       .banner-title {
-        font-size: 1.15rem;
+        font-size: 1.4rem;
       }
 
       .banner-subtitle {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
       }
     }
 
@@ -1422,7 +1409,7 @@
       }
 
       .banner-slider-inner {
-        height: 200px;
+        height: 260px;
       }
     }
   </style>
@@ -1431,7 +1418,6 @@
   <!-- FONDO DE VIDEO -->
   <div class="bg-video">
     <video autoplay muted loop playsinline>
-      <!-- Ajusta las rutas si tus archivos están en otra carpeta -->
       <source src="assets/bg-tech.mp4" type="video/mp4" />
       <source src="assets/bg-tech.mov" type="video/quicktime" />
       Tu navegador no soporta el video de fondo.
@@ -1447,7 +1433,9 @@
       <div class="navbar-inner">
         <a href="#top" class="brand">
           <div class="brand-logo-anim">
-            <!-- Nuevos nombres de imágenes -->
+            <!-- IMPORTANTE: asegúrate que existan exactamente estos archivos:
+                 img/LogoA1.png  e  img/LogoA2.png
+                 (respeta mayúsculas y extensión) -->
             <img src="img/LogoA1.png" alt="Analytix logo 1" class="logo-frame logo-frame-1">
             <img src="img/LogoA2.png" alt="Analytix logo 2" class="logo-frame logo-frame-2">
           </div>
@@ -1557,11 +1545,10 @@
           <div class="banner-slide" style="background-image: url('img/banner3.png');"></div>
           <div class="banner-slide" style="background-image: url('img/banner4.png');"></div>
 
-          <!-- Capa oscura para que el texto se lea mejor -->
+          <!-- Overlay desactivado visualmente -->
           <div class="banner-overlay"></div>
 
-          <!-- Texto animado -->
-          <!-- Cambia slider-text-left por slider-text-center o slider-text-right según tus banners -->
+          <!-- Texto animado: cambia slider-text-left por center/right si quieres -->
           <div class="banner-text slider-text-left">
             <div class="banner-text-content">
               <h2 id="bannerTitle" class="banner-title"></h2>
@@ -2027,7 +2014,7 @@
       const slides = Array.from(document.querySelectorAll(".banner-slide"));
       if (!slides.length) return;
 
-      // Textos que se irán escribiendo y borrando (cámbialos por los tuyos)
+      // Textos que se irán escribiendo y borrando (puedes cambiarlos)
       const titles = [
         "Potenciamos tu presencia digital",
         "Transforma tu negocio con Analytix"
@@ -2049,14 +2036,11 @@
         const current = slides[currentSlide];
         const next = slides[nextIndex];
 
-        // animar salida hacia la izquierda
         current.classList.remove("active");
         current.classList.add("exit-left");
 
-        // animar entrada desde la derecha
         next.classList.add("active");
 
-        // limpiar clase exit-left después de la animación
         setTimeout(() => {
           current.classList.remove("exit-left");
         }, 800);
@@ -2099,21 +2083,16 @@
           const title = titles[titleIndex];
           const subtitle = subtitles[subtitleIndex];
 
-          // Escribir título y subtítulo
-          await typeText(titleEl, title, 60);       // velocidad escritura título
-          await typeText(subtitleEl, subtitle, 35); // velocidad escritura subtítulo
+          await typeText(titleEl, title, 60);
+          await typeText(subtitleEl, subtitle, 35);
 
-          // Pausa con texto completo
           await sleep(1500);
 
-          // Borrar subtítulo y título
           await eraseText(subtitleEl, 25);
           await eraseText(titleEl, 30);
 
-          // Pausa breve antes de siguiente combinación
           await sleep(500);
 
-          // Siguiente título / subtítulo
           titleIndex = (titleIndex + 1) % titles.length;
           subtitleIndex = (subtitleIndex + 1) % subtitles.length;
         }
