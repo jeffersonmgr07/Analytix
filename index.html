@@ -21,7 +21,7 @@
       --border-subtle: rgba(156, 163, 175, 0.3);
       --radius-xl: 1.5rem;
       --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.6);
-      --max-width: 1200px; /* un poco más ancho para que no se vea angosto */
+      --max-width: 1200px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -366,7 +366,7 @@
       .nav-dropdown { display: none; }
     }
 
-    /* SLIDER DE BANNERS | alineado con el resto (mismas márgenes .container) */
+    /* SLIDER BANNER */
     section.banner-slider {
       position: relative;
       width: 100%;
@@ -462,7 +462,7 @@
 
     /* HERO */
     .hero {
-      padding: 2.5rem 0 4.5rem;
+      padding: 2.5rem 0 3rem;
       position: relative;
       overflow: hidden;
     }
@@ -886,8 +886,7 @@
       font-size: 0.95rem;
     }
 
-    /* (el resto de secciones y estilos se mantienen igual que en la versión anterior) */
-    /* QUIÉNES SOMOS */
+    /* ABOUT */
     .about {
       background: radial-gradient(circle at top, rgba(15,23,42,0.9), rgba(2,6,23,1));
     }
@@ -978,12 +977,7 @@
       letter-spacing: 0.08em;
     }
 
-    /* CÓMO FUNCIONA, PLANES, PRODUCTOS SIMULACIÓN, TESTIMONIOS, DEMO, CARRITO, MODAL, BURST, FORM, ETC
-       TODOS IGUALES A LA VERSIÓN ANTERIOR (no los repito por espacio, pero puedes copiar el bloque entero
-       de la respuesta anterior debajo de este comentario sin cambios). */
-
-    /* ==== INICIO BLOQUES RESTANTES (copiados tal cual de la versión anterior) ==== */
-
+    /* HOW */
     .how {
       background: radial-gradient(circle at top, rgba(15,23,42,0.9), rgba(15,23,42,1));
       border-top: 1px solid rgba(31, 41, 55, 0.9);
@@ -1087,6 +1081,7 @@
 
     .benefit-value { font-weight: 600; }
 
+    /* PRICING */
     .pricing {
       background: radial-gradient(circle at top, rgba(15,23,42,0.95), #020617);
       border-top: 1px solid rgba(15,23,42,1);
@@ -1227,6 +1222,7 @@
       padding: 0.55rem 1rem;
     }
 
+    /* PRODUCTOS SIMULACIÓN */
     .products-sim {
       background: radial-gradient(circle at top, rgba(15,23,42,0.95), #020617);
       border-top: 1px solid rgba(15,23,42,1);
@@ -1323,6 +1319,7 @@
       transform: translateY(-1px);
     }
 
+    /* CARRITO */
     .cart-button {
       position: fixed;
       bottom: 20px;
@@ -1573,6 +1570,7 @@
       transform: translateY(-1px);
     }
 
+    /* MODAL PRODUCTO */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -1656,6 +1654,15 @@
       color: var(--text-muted);
     }
 
+    .modal-pill {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      color: var(--text-muted);
+    }
+
+    /* EXPLOSIÓN */
     .burst {
       position: fixed;
       pointer-events: none;
@@ -1695,6 +1702,7 @@
       }
     }
 
+    /* TESTIMONIOS */
     .testimonials {
       background: radial-gradient(circle at top, rgba(15,23,42,0.9), #020617);
     }
@@ -1741,6 +1749,7 @@
       color: var(--text-muted);
     }
 
+    /* DEMO */
     .demo {
       background: radial-gradient(circle at top, rgba(15,23,42,0.9), #020617);
       border-top: 1px solid rgba(31, 41, 55, 0.9);
@@ -1846,6 +1855,12 @@
       margin-top: 0.5rem;
     }
 
+    /* FOOTER container */
+    #footerContainer {
+      border-top: 1px solid rgba(31,41,55,0.9);
+      background: #020617;
+    }
+
     @media (max-width: 900px) {
       .hero-inner,
       .about-grid,
@@ -1934,8 +1949,6 @@
       .demo-form { padding: 1.1rem 1rem; }
       .form-row { grid-template-columns: minmax(0, 1fr); }
     }
-
-    /* ==== FIN BLOQUES RESTANTES ==== */
   </style>
 </head>
 <body>
@@ -2173,32 +2186,654 @@
         </div>
       </section>
 
-      <!-- A PARTIR DE AQUÍ, PEGA TODAS LAS SECCIONES QUE YA TENÍAS (ABOUT, HOW, PLANES, PRODUCTOS SIMULACIÓN, TESTIMONIOS, DEMO, CARRITO, MODAL, FOOTER, ETC.)
-           EXACTAMENTE IGUALES A LA VERSIÓN ANTERIOR, SOLO HEMOS CAMBIADO:
-           - CABECERA / HERO / CALENDARIO / SLIDER / NAVBAR.
-      -->
+      <!-- PLANES -->
+      <section class="pricing" id="planes">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Planes</div>
+            <h2 class="section-title">Planes pensados para emprendedores y negocios locales</h2>
+            <p class="section-description">
+              Elige el plan que mejor se ajusta a tu negocio. Todos se pueden probar gratis durante 7 días
+              y puedes escalar cuando estés listo.
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <!-- PLAN 1 -->
+            <article class="plan-card" data-plan-name="Start Web" data-plan-price="49">
+              <span class="plan-tag">Recomendado para empezar</span>
+              <h3 class="plan-name">Start Web</h3>
+              <p class="plan-subtitle">Ideal para emprendedores y negocios que dan sus primeros pasos online.</p>
+              <p class="plan-price">S/ 49 <span>/mes</span></p>
+              <p class="plan-note">Incluye prueba gratuita de 7 días.</p>
+
+              <ul class="plan-list">
+                <li>Web estructurada para tu negocio.</li>
+                <li>Carrito de compra sencillo o reservas por WhatsApp.</li>
+                <li>Dominio personalizado (conexión incluida).</li>
+                <li>Hosting optimizado para tu web.</li>
+                <li>Creación de logo básico.</li>
+                <li>Conexión con redes sociales.</li>
+                <li>Formulario de clientes potenciales.</li>
+                <li>Soporte técnico y actualizaciones 1 vez por semana.</li>
+              </ul>
+
+              <div class="plan-actions">
+                <button type="button" class="btn-primary plan-toggle-btn">
+                  Probar este plan
+                </button>
+
+                <div class="plan-form">
+                  <div class="plan-form-row">
+                    <div class="plan-form-group">
+                      <label>Nombre</label>
+                      <input type="text" class="plan-name-input" placeholder="Tu nombre" />
+                    </div>
+                    <div class="plan-form-group">
+                      <label>Apellidos</label>
+                      <input type="text" class="plan-lastname-input" placeholder="Tus apellidos" />
+                    </div>
+                  </div>
+
+                  <div class="plan-form-group">
+                    <label>Nombre del negocio</label>
+                    <input type="text" class="plan-business-input" placeholder="Ej. Bodega San Juan" />
+                  </div>
+
+                  <div class="plan-form-group">
+                    <label>Correo electrónico</label>
+                    <input type="email" class="plan-email-input" placeholder="tu@correo.com" />
+                  </div>
+
+                  <p class="plan-form-note">
+                    Al enviar, se abrirá WhatsApp con tu solicitud del plan y tus datos para coordinar la activación.
+                  </p>
+
+                  <button type="button" class="btn-primary plan-send-btn">
+                    Enviar datos y continuar por WhatsApp
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- PLAN 2 -->
+            <article class="plan-card" data-plan-name="Growth Web" data-plan-price="79">
+              <h3 class="plan-name">Growth Web</h3>
+              <p class="plan-subtitle">Para negocios que quieren vender y cobrar directamente desde su web.</p>
+              <p class="plan-price">S/ 79 <span>/mes</span></p>
+              <p class="plan-note">Incluye prueba gratuita de 7 días.</p>
+
+              <ul class="plan-list">
+                <li>Todo lo incluido en Start Web.</li>
+                <li>Conexión a pasarelas de pago: Mercado Pago, PayPal, IziPay, PagoEfectivo.</li>
+                <li>Pagos con Yape, Plin y bancos peruanos.</li>
+                <li>Órdenes de compra automáticas.</li>
+                <li>Envío de comprobantes por correo.</li>
+                <li>Configuración de envíos básicos.</li>
+              </ul>
+
+              <div class="plan-actions">
+                <button type="button" class="btn-primary plan-toggle-btn">
+                  Probar este plan
+                </button>
+
+                <div class="plan-form">
+                  <div class="plan-form-row">
+                    <div class="plan-form-group">
+                      <label>Nombre</label>
+                      <input type="text" class="plan-name-input" placeholder="Tu nombre" />
+                    </div>
+                    <div class="plan-form-group">
+                      <label>Apellidos</label>
+                      <input type="text" class="plan-lastname-input" placeholder="Tus apellidos" />
+                    </div>
+                  </div>
+
+                  <div class="plan-form-group">
+                    <label>Nombre del negocio</label>
+                    <input type="text" class="plan-business-input" placeholder="Ej. Restaurante El Sabor" />
+                  </div>
+
+                  <div class="plan-form-group">
+                    <label>Correo electrónico</label>
+                    <input type="email" class="plan-email-input" placeholder="tu@correo.com" />
+                  </div>
+
+                  <p class="plan-form-note">
+                    Al enviar, se abrirá WhatsApp con tu solicitud del plan y tus datos para coordinar la activación.
+                  </p>
+
+                  <button type="button" class="btn-primary plan-send-btn">
+                    Enviar datos y continuar por WhatsApp
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- PLAN 3 -->
+            <article class="plan-card" data-plan-name="Pro Web" data-plan-price="99">
+              <h3 class="plan-name">Pro Web</h3>
+              <p class="plan-subtitle">Para negocios que quieren fidelizar clientes y medir todo.</p>
+              <p class="plan-price">S/ 99 <span>/mes</span></p>
+              <p class="plan-note">Incluye prueba gratuita de 7 días.</p>
+
+              <ul class="plan-list">
+                <li>Todo lo incluido en Growth Web.</li>
+                <li>Gestión de cuentas de usuarios (registro e inicio de sesión).</li>
+                <li>Planes de recompensas y fidelización.</li>
+                <li>Integración con Google Analytics.</li>
+                <li>Integración con Pixel de Meta.</li>
+                <li>Reportes básicos para entender tu tráfico y ventas.</li>
+              </ul>
+
+              <div class="plan-actions">
+                <button type="button" class="btn-primary plan-toggle-btn">
+                  Probar este plan
+                </button>
+
+                <div class="plan-form">
+                  <div class="plan-form-row">
+                    <div class="plan-form-group">
+                      <label>Nombre</label>
+                      <input type="text" class="plan-name-input" placeholder="Tu nombre" />
+                    </div>
+                    <div class="plan-form-group">
+                      <label>Apellidos</label>
+                      <input type="text" class="plan-lastname-input" placeholder="Tus apellidos" />
+                    </div>
+                  </div>
+
+                  <div class="plan-form-group">
+                    <label>Nombre del negocio</label>
+                    <input type="text" class="plan-business-input" placeholder="Ej. Colegio Nuevo Mundo" />
+                  </div>
+
+                  <div class="plan-form-group">
+                    <label>Correo electrónico</label>
+                    <input type="email" class="plan-email-input" placeholder="tu@correo.com" />
+                  </div>
+
+                  <p class="plan-form-note">
+                    Al enviar, se abrirá WhatsApp con tu solicitud del plan y tus datos para coordinar la activación.
+                  </p>
+
+                  <button type="button" class="btn-primary plan-send-btn">
+                    Enviar datos y continuar por WhatsApp
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTOS SIMULACIÓN -->
+      <section class="products-sim" id="productos-simulacion">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Carrito de compras</div>
+            <h2 class="section-title">Productos de simulación para carrito de compras</h2>
+            <p class="section-description">
+              Así podría verse tu tienda online cuando des el paso de vender tus productos por internet.
+              Estos productos son solo de prueba para mostrar el comportamiento del carrito.
+            </p>
+          </div>
+
+          <div class="products-grid-sim">
+            <!-- Producto 1 -->
+            <article class="product-card-sim">
+              <div class="product-img-sim">
+                <img src="img/pollobrasa.png" alt="Combo de pollo a la brasa">
+              </div>
+              <h3 class="product-title-sim">Combo de pollo a la brasa</h3>
+              <p class="product-desc-sim">
+                Pollo a la brasa + papas + ensalada + gaseosa. Ideal para 3 a 4 personas. Producto de demostración.
+              </p>
+              <p class="product-price-sim">S/ 69.00</p>
+              <div class="product-actions-sim">
+                <button
+                  type="button"
+                  class="btn-more-sim"
+                  data-id="p1"
+                >
+                  Ver detalles
+                </button>
+                <button
+                  type="button"
+                  class="btn-add-sim"
+                  data-id="p1"
+                  data-name="Combo de pollo a la brasa"
+                  data-price="69"
+                  data-img="img/pollobrasa.png"
+                >
+                  Agregar
+                </button>
+              </div>
+            </article>
+
+            <!-- Producto 2 -->
+            <article class="product-card-sim">
+              <div class="product-img-sim">
+                <img src="img/packwhisky.png" alt="Pack whiskey Jonny Walker">
+              </div>
+              <h3 class="product-title-sim">Pack whiskey Jonny Walker</h3>
+              <p class="product-desc-sim">
+                Pack de demostración: botella de whiskey + energizante + hielo. Ideal para mostrar packs premium.
+              </p>
+              <p class="product-price-sim">S/ 85.00</p>
+              <div class="product-actions-sim">
+                <button
+                  type="button"
+                  class="btn-more-sim"
+                  data-id="p2"
+                >
+                  Ver detalles
+                </button>
+                <button
+                  type="button"
+                  class="btn-add-sim"
+                  data-id="p2"
+                  data-name="Pack whiskey Jonny Walker"
+                  data-price="85"
+                  data-img="img/packwhisky.png"
+                >
+                  Agregar
+                </button>
+              </div>
+            </article>
+
+            <!-- Producto 3 -->
+            <article class="product-card-sim">
+              <div class="product-img-sim">
+                <img src="img/zapatillas.png" alt="Zapatillas Adidas modelo clásico">
+              </div>
+              <h3 class="product-title-sim">Zapatillas Adidas modelo clásico</h3>
+              <p class="product-desc-sim">
+                Zapatillas de prueba para mostrar cómo se verían tus productos de moda en el carrito de compra.
+              </p>
+              <p class="product-price-sim">S/ 129.00</p>
+              <div class="product-actions-sim">
+                <button
+                  type="button"
+                  class="btn-more-sim"
+                  data-id="p3"
+                >
+                  Ver detalles
+                </button>
+                <button
+                  type="button"
+                  class="btn-add-sim"
+                  data-id="p3"
+                  data-name="Zapatillas Adidas modelo clásico"
+                  data-price="129"
+                  data-img="img/zapatillas.png"
+                >
+                  Agregar
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUIÉNES SOMOS -->
+      <section class="about" id="about">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Quiénes somos</div>
+            <h2 class="section-title">Expertos en páginas web que generan resultados</h2>
+            <p class="section-description">
+              Somos un estudio digital que combina diseño, desarrollo y estrategia para construir webs que venden
+              y le dan presencia profesional a tu negocio.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-text">
+              <h3>Somos tu equipo para digitalizar tu negocio</h3>
+              <p>
+                Te acompañamos desde la idea hasta el lanzamiento. Definimos la estructura de tu web, tus productos
+                o servicios, formas de contacto y automatizaciones clave.
+              </p>
+              <p>
+                Nos enfocamos en que tu sitio sea claro, rápido y fácil de usar, tanto para tus clientes como
+                para ti y tu equipo.
+              </p>
+
+              <ul class="about-list">
+                <li>Webs pensadas para vender y captar clientes.</li>
+                <li>Integración con WhatsApp, redes sociales y pasarelas de pago.</li>
+                <li>Soporte cercano para ajustes y mejoras constantes.</li>
+                <li>Implementaciones adaptadas a negocios locales y emprendimientos.</li>
+              </ul>
+
+              <div class="about-pill-row">
+                <span class="about-pill">Diseño y desarrollo web</span>
+                <span class="about-pill">Tiendas online</span>
+                <span class="about-pill">Reservas por WhatsApp</span>
+                <span class="about-pill">Análisis básico de métricas</span>
+              </div>
+            </div>
+
+            <aside class="about-card">
+              <div class="about-card-title">¿Qué tipo de negocios ayudamos?</div>
+              <p>
+                Trabajamos con restaurantes, bodegas, estudios contables, colegios, tiendas de ropa, comercios
+                de barrio y emprendimientos que necesitan dar el salto digital.
+              </p>
+
+              <div class="about-card-cols">
+                <div class="about-mini">
+                  <strong>Locales físicos</strong>
+                  <p>Negocios que necesitan mostrar su carta, precios y contacto en un solo lugar.</p>
+                </div>
+                <div class="about-mini">
+                  <strong>Servicios</strong>
+                  <p>Profesionales y empresas que agendan citas, reuniones y asesorías en línea.</p>
+                </div>
+                <div class="about-mini">
+                  <strong>E-commerce</strong>
+                  <p>Tiendas que quieren vender productos con carrito y pagos online.</p>
+                </div>
+                <div class="about-mini">
+                  <strong>Proyectos especiales</strong>
+                  <p>Landing pages de campañas, partidos políticos, transporte, turismo y más.</p>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- CÓMO FUNCIONA -->
+      <section class="how" id="how">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Proceso</div>
+            <h2 class="section-title">De la idea a tu web funcionando en pocos pasos</h2>
+            <p class="section-description">
+              Un flujo simple para pasar de “quiero una web” a tener un sitio listo para vender y recibir consultas.
+            </p>
+          </div>
+
+          <div class="how-grid">
+            <div>
+              <div class="steps">
+                <div class="step">
+                  <div class="step-index">1</div>
+                  <div>
+                    <div class="step-title">Reunión de descubrimiento</div>
+                    <p class="step-body">
+                      Conversamos sobre tu negocio, qué vendes, a quién le vendes y qué objetivos tienes con tu página web.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="step">
+                  <div class="step-index">2</div>
+                  <div>
+                    <div class="step-title">Diseño de la estructura</div>
+                    <p class="step-body">
+                      Definimos secciones, productos o servicios, formularios y botones clave (WhatsApp, reservas, carrito, etc.).
+                    </p>
+                  </div>
+                </div>
+
+                <div class="step">
+                  <div class="step-index">3</div>
+                  <div>
+                    <div class="step-title">Desarrollo e integraciones</div>
+                    <p class="step-body">
+                      Construimos tu web, conectamos dominio, hosting, pasarelas de pago y herramientas como Google Analytics.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="step">
+                  <div class="step-index">4</div>
+                  <div>
+                    <div class="step-title">Lanzamiento y acompañamiento</div>
+                    <p class="step-body">
+                      Publicamos tu sitio, revisamos métricas básicas y te acompañamos con soporte y mejoras continuas.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pill-row">
+                <span class="pill">Entrega rápida</span>
+                <span class="pill">Soporte cercano</span>
+                <span class="pill">Páginas listas para escalar</span>
+              </div>
+            </div>
+
+            <aside class="benefits">
+              <div class="benefits-title">Beneficios de trabajar con Analytix</div>
+              <div class="benefits-sub">
+                Menos complicaciones técnicas y más foco en lo que importa: que tu negocio venda, agende o reciba consultas.
+              </div>
+
+              <div class="benefits-grid">
+                <div class="benefit-item">
+                  <div class="benefit-label">Enfoque en resultados</div>
+                  <div class="benefit-value">Webs pensadas para convertir</div>
+                </div>
+                <div class="benefit-item">
+                  <div class="benefit-label">Automatización</div>
+                  <div class="benefit-value">WhatsApp, correos y pagos conectados</div>
+                </div>
+                <div class="benefit-item">
+                  <div class="benefit-label">Escalabilidad</div>
+                  <div class="benefit-value">Puedes empezar simple y crecer</div>
+                </div>
+                <div class="benefit-item">
+                  <div class="benefit-label">Acompañamiento</div>
+                  <div class="benefit-value">Soporte técnico constante</div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIOS -->
+      <section class="testimonials" id="testimonials">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Testimonios</div>
+            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            <p class="section-description">
+              Negocios reales que ya dieron el paso de digitalizarse con una web hecha a su medida.
+            </p>
+          </div>
+
+          <div class="testimonial-grid">
+            <article class="testimonial">
+              <p class="testimonial-body">
+                “Antes dependíamos solo de redes sociales. Ahora nuestros clientes encuentran el menú, hacen sus pedidos
+                y nos escriben por WhatsApp directo desde la web. Las ventas aumentaron y todo está más organizado.”
+              </p>
+              <div class="testimonial-author">Carolina M.</div>
+              <div class="testimonial-role">Dueña de restaurante</div>
+            </article>
+
+            <article class="testimonial">
+              <p class="testimonial-body">
+                “Queríamos algo simple para mostrar nuestros servicios contables y agendar reuniones. Analytix nos ayudó
+                con una página clara, un formulario y enlaces directos a WhatsApp y correo. Ahora todo llega ordenado.”
+              </p>
+              <div class="testimonial-author">Luis R.</div>
+              <div class="testimonial-role">Estudio contable</div>
+            </article>
+
+            <article class="testimonial">
+              <p class="testimonial-body">
+                “Con la tienda online pudimos mostrar nuestro catálogo y recibir pagos anticipados. El carrito de compra
+                hace que los clientes entiendan mejor lo que ofrecemos y el proceso de compra es más profesional.”
+              </p>
+              <div class="testimonial-author">Andrea V.</div>
+              <div class="testimonial-role">Emprendimiento de moda</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEMO -->
+      <section class="demo" id="demo">
+        <div class="container">
+          <div class="demo-grid">
+            <div class="demo-copy">
+              <div class="section-kicker">Solicitar demo</div>
+              <h3>Conversemos sobre la web que tu negocio necesita</h3>
+              <p>
+                Cuéntanos qué tipo de negocio tienes, qué quieres lograr con tu página y nosotros nos encargamos
+                de proponerte la mejor solución.
+              </p>
+              <p>
+                Podemos mostrarte ejemplos de webs similares a la tuya, opciones de carrito, reservas, catálogos
+                y automatizaciones por WhatsApp.
+              </p>
+
+              <ul class="demo-points">
+                <li>Revisión rápida de tu caso.</li>
+                <li>Recomendaciones claras, sin tecnicismos.</li>
+                <li>Planes flexibles y escalables.</li>
+              </ul>
+            </div>
+
+            <form class="demo-form" id="demoForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="demoName">Nombre y apellidos</label>
+                  <input type="text" id="demoName" placeholder="Tu nombre completo" />
+                </div>
+                <div class="form-group">
+                  <label for="demoBusiness">Nombre del negocio</label>
+                  <input type="text" id="demoBusiness" placeholder="Ej. Bodega San Juan" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="demoEmail">Correo electrónico</label>
+                  <input type="email" id="demoEmail" placeholder="tu@correo.com" />
+                </div>
+                <div class="form-group">
+                  <label for="demoPhone">WhatsApp</label>
+                  <input type="tel" id="demoPhone" placeholder="+51 918 650 530" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="demoType">Tipo de negocio</label>
+                <input type="text" id="demoType" placeholder="Restaurante, estudio contable, tienda, colegio, etc." />
+              </div>
+
+              <div class="form-group">
+                <label for="demoMsg">Cuéntanos qué necesitas</label>
+                <textarea id="demoMsg" placeholder="Ej. Quiero una web con carrito de compras y pagos online."></textarea>
+              </div>
+
+              <button type="button" class="btn-primary" id="demoSendBtn">
+                Enviar datos y continuar por WhatsApp
+              </button>
+
+              <p class="form-note">
+                Usaremos estos datos solo para coordinar la demo y resolver tus dudas. No compartimos tu información con terceros.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <!-- aquí sigue tu carrito, modal, footer-container y scripts igual que antes -->
+    <!-- BOTÓN CARRITO -->
+    <button type="button" class="cart-button hidden" id="cartButton">
+      <span class="cart-icon">🛒</span>
+      <span class="cart-amount" id="cartAmount">S/ 0.00</span>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+    <!-- PANEL CARRITO -->
+    <div class="cart-panel-backdrop" id="cartPanelBackdrop">
+      <div class="cart-panel">
+        <div class="cart-header">
+          <h2>Carrito de prueba</h2>
+          <button type="button" class="cart-close" id="cartClose">×</button>
+        </div>
+
+        <div class="cart-items" id="cartItems"></div>
+
+        <div class="cart-footer">
+          <div class="cart-total-row">
+            <span class="cart-total-label">Total de simulación</span>
+            <span class="cart-total-amount" id="cartTotal">S/ 0.00</span>
+          </div>
+          <p class="cart-note">
+            Este carrito es solo de prueba para mostrar cómo funcionaría tu tienda online.
+          </p>
+          <div class="cart-buttons">
+            <button type="button" class="btn-checkout" id="cartCheckout">
+              Continuar por WhatsApp
+            </button>
+            <button type="button" class="btn-pay-online" id="cartPayOnline">
+              Pago online (simulación)
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL PRODUCTO -->
+    <div class="modal-backdrop" id="productModal">
+      <div class="modal-box">
+        <button type="button" class="modal-close" id="modalClose">×</button>
+        <h3 class="modal-title" id="modalTitle"></h3>
+        <div class="modal-image">
+          <img src="" alt="" id="modalImage">
+        </div>
+        <div class="modal-price-row">
+          <span class="modal-price" id="modalPrice"></span>
+          <span class="modal-pill">Producto de prueba</span>
+        </div>
+        <div class="modal-section">
+          <h4>Descripción</h4>
+          <p class="modal-desc" id="modalDesc"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENEDOR EXPLOSIÓN -->
+    <div class="burst" id="burst"></div>
+
+    <!-- FOOTER DINÁMICO -->
+    <div id="footerContainer"></div>
   </div>
 
   <script>
     // Menú móvil
-    const navToggle = document.getElementById("navToggle");
-    const navMobile = document.getElementById("navMobile");
-    if (navToggle && navMobile) {
+    (function() {
+      const navToggle = document.getElementById("navToggle");
+      const navMobile = document.getElementById("navMobile");
+      if (!navToggle || !navMobile) return;
+
       navToggle.addEventListener("click", () => {
         navMobile.style.display = navMobile.style.display === "flex" ? "none" : "flex";
       });
-      navMobile.addEventListener("click", (e) => {
-        if (e.target.tagName === "A") navMobile.style.display = "none";
-      });
-    }
 
-    // Dropdown soluciones
-    const solutionsToggle = document.getElementById("solutionsToggle");
-    const solutionsWrapper = solutionsToggle?.closest(".nav-dropdown-wrapper");
-    if (solutionsToggle && solutionsWrapper) {
+      navMobile.addEventListener("click", (e) => {
+        if (e.target.tagName === "A") {
+          navMobile.style.display = "none";
+        }
+      });
+    })();
+
+    // Dropdown Soluciones Web
+    (function() {
+      const solutionsToggle = document.getElementById("solutionsToggle");
+      const solutionsWrapper = solutionsToggle ? solutionsToggle.closest(".nav-dropdown-wrapper") : null;
+      if (!solutionsToggle || !solutionsWrapper) return;
+
       solutionsToggle.addEventListener("click", (e) => {
         e.stopPropagation();
         const isOpen = solutionsWrapper.classList.contains("open");
@@ -2211,13 +2846,14 @@
           solutionsToggle.setAttribute("aria-expanded", "false");
         }
       });
+
       document.addEventListener("click", () => {
         solutionsWrapper.classList.remove("open");
         solutionsToggle.setAttribute("aria-expanded", "false");
       });
-    }
+    })();
 
-    // SLIDER + Texto animado
+    // SLIDER + TEXTO ANIMADO
     (function() {
       const slides = Array.from(document.querySelectorAll(".banner-slide"));
       if (!slides.length) return;
@@ -2323,10 +2959,10 @@
           return; // domingo sin horarios
         } else if (day === 6) {
           startHour = 9;
-          endHour = 12;
+          endHour = 12; // 9:00, 10:00, 11:00
         } else {
           startHour = 9;
-          endHour = 18;
+          endHour = 18; // 9:00 .. 17:00
         }
 
         for (let h = startHour; h < endHour; h++) {
@@ -2349,7 +2985,7 @@
         const daysInMonth = lastDay.getDate();
 
         const firstWeekday = firstDay.getDay();
-        const offset = (firstWeekday + 6) % 7;
+        const offset = (firstWeekday + 6) % 7; // lunes=0
 
         monthLabel.textContent = `${monthNames[currentMonth]} ${currentYear}`;
         daysContainer.innerHTML = "";
@@ -2370,7 +3006,8 @@
           const isToday = formatYMD(today) === dateStr;
           if (isToday) cell.classList.add("is-today");
 
-          if (dateObj < new Date(today.getFullYear(), today.getMonth(), today.getDate())) {
+          const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+          if (dateObj < todayMidnight) {
             cell.classList.add("disabled");
           }
 
@@ -2387,7 +3024,7 @@
         }
 
         const sd = new Date(selectedDateStr + "T00:00:00");
-        if (sd.getMonth() === currentMonth && sd.getFullYear() === currentYear) {
+        if (!isNaN(sd) && sd.getMonth() === currentMonth && sd.getFullYear() === currentYear) {
           const dayNumber = sd.getDate();
           const indexInGrid = offset + dayNumber - 1;
           const dayEl = daysContainer.children[indexInGrid];
@@ -2458,12 +3095,359 @@
       });
     })();
 
-    /* Aquí vuelves a pegar todos los scripts de:
-       - planes (plan-btn, plan-form, plan-send-btn)
-       - productos simulación (carrito, explosión, modal)
-       - carga de footer desde footer.html
-       tal como estaban en la versión anterior.
-    */
+    // PLANES -> abrir formulario y enviar a WhatsApp
+    (function() {
+      const planCards = document.querySelectorAll(".plan-card");
+      const waBase = "https://wa.me/51918650530?text=";
+
+      planCards.forEach(card => {
+        const toggleBtn = card.querySelector(".plan-toggle-btn");
+        const form = card.querySelector(".plan-form");
+        const sendBtn = card.querySelector(".plan-send-btn");
+
+        if (toggleBtn && form) {
+          toggleBtn.addEventListener("click", () => {
+            form.style.display = form.style.display === "block" ? "none" : "block";
+          });
+        }
+
+        if (sendBtn && form) {
+          sendBtn.addEventListener("click", () => {
+            const name = form.querySelector(".plan-name-input")?.value.trim() || "";
+            const last = form.querySelector(".plan-lastname-input")?.value.trim() || "";
+            const business = form.querySelector(".plan-business-input")?.value.trim() || "";
+            const email = form.querySelector(".plan-email-input")?.value.trim() || "";
+            const planName = card.dataset.planName || "";
+            const planPrice = card.dataset.planPrice || "";
+
+            if (!name || !last || !business || !email) {
+              alert("Por favor completa todos los datos del formulario del plan.");
+              return;
+            }
+
+            const text =
+              `Hola Analytix, quiero probar el plan ${planName} (S/ ${planPrice}).\n\n` +
+              `Nombre: ${name} ${last}\n` +
+              `Negocio: ${business}\n` +
+              `Correo: ${email}\n\n` +
+              `Por favor, contáctenme para activar la prueba de 7 días.`;
+
+            const url = waBase + encodeURIComponent(text);
+            window.open(url, "_blank");
+          });
+        }
+      });
+    })();
+
+    // DEMO -> enviar a WhatsApp
+    (function() {
+      const btn = document.getElementById("demoSendBtn");
+      if (!btn) return;
+
+      btn.addEventListener("click", () => {
+        const name = document.getElementById("demoName").value.trim();
+        const business = document.getElementById("demoBusiness").value.trim();
+        const email = document.getElementById("demoEmail").value.trim();
+        const phone = document.getElementById("demoPhone").value.trim();
+        const type = document.getElementById("demoType").value.trim();
+        const msg = document.getElementById("demoMsg").value.trim();
+
+        if (!name || !business || !email || !phone || !type) {
+          alert("Por favor completa todos los campos principales del formulario de demo.");
+          return;
+        }
+
+        const text =
+          `Hola Analytix, quiero solicitar una demo de sus soluciones web.\n\n` +
+          `Nombre: ${name}\n` +
+          `Negocio: ${business}\n` +
+          `Correo: ${email}\n` +
+          `WhatsApp: ${phone}\n` +
+          `Tipo de negocio: ${type}\n\n` +
+          `Necesito:\n${msg || "(Aún no he detallado, pero quiero conversar sobre opciones para mi negocio.)"}`;
+
+        const url = "https://wa.me/51918650530?text=" + encodeURIComponent(text);
+        window.open(url, "_blank");
+      });
+    })();
+
+    // MODAL PRODUCTOS
+    (function() {
+      const modal = document.getElementById("productModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalImage = document.getElementById("modalImage");
+      const modalPrice = document.getElementById("modalPrice");
+      const modalDesc = document.getElementById("modalDesc");
+      const modalClose = document.getElementById("modalClose");
+
+      if (!modal || !modalTitle || !modalImage || !modalPrice || !modalDesc || !modalClose) return;
+
+      const productDetails = {
+        p1: {
+          title: "Combo de pollo a la brasa",
+          price: "S/ 69.00",
+          img: "img/pollobrasa.png",
+          desc: "Combo de demostración: incluye pollo a la brasa, papas, ensalada y gaseosa. Este producto es solo de prueba para mostrar cómo se verían tus platos en una tienda online."
+        },
+        p2: {
+          title: "Pack whiskey Jonny Walker",
+          price: "S/ 85.00",
+          img: "img/packwhisky.png",
+          desc: "Pack de demostración con whiskey, energizante y hielo. Ideal para mostrar combos premium o packs especiales en tu catálogo digital."
+        },
+        p3: {
+          title: "Zapatillas Adidas modelo clásico",
+          price: "S/ 129.00",
+          img: "img/zapatillas.png",
+          desc: "Zapatillas de ejemplo para mostrar cómo lucirían tus productos de moda o calzado dentro de un carrito de compras en tu web."
+        }
+      };
+
+      document.querySelectorAll(".btn-more-sim").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = btn.dataset.id;
+          const data = productDetails[id];
+          if (!data) return;
+          modalTitle.textContent = data.title;
+          modalPrice.textContent = data.price;
+          modalImage.src = data.img;
+          modalImage.alt = data.title;
+          modalDesc.textContent = data.desc;
+          modal.classList.add("open");
+        });
+      });
+
+      modalClose.addEventListener("click", () => modal.classList.remove("open"));
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) modal.classList.remove("open");
+      });
+    })();
+
+    // EXPLOSIÓN tipo "Html explosion"
+    function createBurst(x, y) {
+      const burst = document.getElementById("burst");
+      if (!burst) return;
+
+      burst.style.left = x + "px";
+      burst.style.top = y + "px";
+
+      const total = 22;
+      for (let i = 0; i < total; i++) {
+        const particle = document.createElement("span");
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 40 + Math.random() * 40;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+
+        particle.style.setProperty("--tx", tx + "px");
+        particle.style.setProperty("--ty", ty + "px");
+
+        const r = Math.random();
+        if (r < 0.33) particle.classList.add("green");
+        else if (r > 0.66) particle.classList.add("purple");
+
+        burst.appendChild(particle);
+        particle.addEventListener("animationend", () => {
+          particle.remove();
+        });
+      }
+
+      const cartBtn = document.getElementById("cartButton");
+      if (cartBtn) {
+        cartBtn.classList.remove("bump");
+        void cartBtn.offsetWidth;
+        cartBtn.classList.add("bump");
+      }
+    }
+
+    // CARRITO
+    (function() {
+      const cart = [];
+      const cartButton = document.getElementById("cartButton");
+      const cartAmount = document.getElementById("cartAmount");
+      const cartCount = document.getElementById("cartCount");
+      const cartPanelBackdrop = document.getElementById("cartPanelBackdrop");
+      const cartItemsEl = document.getElementById("cartItems");
+      const cartTotalEl = document.getElementById("cartTotal");
+      const cartClose = document.getElementById("cartClose");
+      const cartCheckout = document.getElementById("cartCheckout");
+      const cartPayOnline = document.getElementById("cartPayOnline");
+
+      if (!cartButton || !cartAmount || !cartCount || !cartPanelBackdrop || !cartItemsEl || !cartTotalEl) return;
+
+      function updateCartUI() {
+        cartItemsEl.innerHTML = "";
+        let total = 0;
+        let itemsCount = 0;
+
+        cart.forEach(item => {
+          total += item.price * item.qty;
+          itemsCount += item.qty;
+
+          const row = document.createElement("div");
+          row.className = "cart-item";
+
+          const img = document.createElement("img");
+          img.src = item.img;
+          img.alt = item.name;
+
+          const main = document.createElement("div");
+          main.className = "cart-item-main";
+
+          const nameEl = document.createElement("div");
+          nameEl.className = "cart-item-name";
+          nameEl.textContent = item.name;
+
+          const priceEl = document.createElement("div");
+          priceEl.className = "cart-item-price";
+          priceEl.textContent = "S/ " + item.price.toFixed(2);
+
+          main.appendChild(nameEl);
+          main.appendChild(priceEl);
+
+          const actions = document.createElement("div");
+          actions.className = "cart-item-actions";
+
+          const qtyControls = document.createElement("div");
+          qtyControls.className = "qty-controls";
+
+          const btnMinus = document.createElement("button");
+          btnMinus.type = "button";
+          btnMinus.className = "qty-btn";
+          btnMinus.textContent = "−";
+
+          const qtyNumber = document.createElement("span");
+          qtyNumber.className = "qty-number";
+          qtyNumber.textContent = item.qty;
+
+          const btnPlus = document.createElement("button");
+          btnPlus.type = "button";
+          btnPlus.className = "qty-btn";
+          btnPlus.textContent = "+";
+
+          btnMinus.addEventListener("click", () => {
+            if (item.qty > 1) {
+              item.qty--;
+            } else {
+              const idx = cart.indexOf(item);
+              if (idx !== -1) cart.splice(idx, 1);
+            }
+            updateCartUI();
+          });
+
+          btnPlus.addEventListener("click", () => {
+            item.qty++;
+            updateCartUI();
+          });
+
+          qtyControls.appendChild(btnMinus);
+          qtyControls.appendChild(qtyNumber);
+          qtyControls.appendChild(btnPlus);
+
+          const btnRemove = document.createElement("button");
+          btnRemove.type = "button";
+          btnRemove.className = "remove-btn";
+          btnRemove.textContent = "Eliminar";
+          btnRemove.addEventListener("click", () => {
+            const idx = cart.indexOf(item);
+            if (idx !== -1) cart.splice(idx, 1);
+            updateCartUI();
+          });
+
+          actions.appendChild(qtyControls);
+          actions.appendChild(btnRemove);
+
+          row.appendChild(img);
+          row.appendChild(main);
+          row.appendChild(actions);
+
+          cartItemsEl.appendChild(row);
+        });
+
+        cartAmount.textContent = "S/ " + total.toFixed(2);
+        cartTotalEl.textContent = "S/ " + total.toFixed(2);
+        cartCount.textContent = itemsCount;
+
+        if (itemsCount > 0) {
+          cartButton.classList.remove("hidden");
+        } else {
+          cartButton.classList.add("hidden");
+          cartPanelBackdrop.classList.remove("open");
+        }
+      }
+
+      document.querySelectorAll(".btn-add-sim").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          const id = btn.dataset.id;
+          const name = btn.dataset.name;
+          const img = btn.dataset.img;
+          const price = parseFloat(btn.dataset.price || "0");
+
+          if (!id || !name || !img || !price) return;
+
+          const existing = cart.find(it => it.id === id);
+          if (existing) existing.qty++;
+          else cart.push({ id, name, img, price, qty: 1 });
+
+          const rect = btn.getBoundingClientRect();
+          const x = rect.left + rect.width / 2;
+          const y = rect.top + rect.height / 2;
+          createBurst(x, y);
+
+          updateCartUI();
+        });
+      });
+
+      cartButton.addEventListener("click", () => {
+        if (cartCount.textContent === "0") return;
+        cartPanelBackdrop.classList.add("open");
+      });
+
+      cartClose.addEventListener("click", () => {
+        cartPanelBackdrop.classList.remove("open");
+      });
+
+      cartPanelBackdrop.addEventListener("click", (e) => {
+        if (e.target === cartPanelBackdrop) {
+          cartPanelBackdrop.classList.remove("open");
+        }
+      });
+
+      cartCheckout.addEventListener("click", () => {
+        if (!cart.length) {
+          alert("Tu carrito está vacío.");
+          return;
+        }
+
+        let total = 0;
+        let text = "Hola Analytix, quiero simular una compra desde el carrito de prueba.\n\n";
+        cart.forEach(item => {
+          total += item.price * item.qty;
+          text += `- ${item.name} x${item.qty} (S/ ${item.price.toFixed(2)})\n`;
+        });
+        text += `\nTotal aproximado: S/ ${total.toFixed(2)}.\n\n`;
+        text += "Quiero una tienda online similar para mi negocio.";
+
+        const url = "https://wa.me/51918650530?text=" + encodeURIComponent(text);
+        window.open(url, "_blank");
+      });
+
+      cartPayOnline.addEventListener("click", () => {
+        alert("Este es un flujo de pago de simulación para mostrar cómo funcionaría tu futura tienda online.");
+      });
+    })();
+
+    // Cargar footer desde footer.html
+    (function() {
+      const container = document.getElementById("footerContainer");
+      if (!container) return;
+      fetch("footer.html")
+        .then(res => res.ok ? res.text() : "")
+        .then(html => {
+          if (html) container.innerHTML = html;
+        })
+        .catch(() => {});
+    })();
   </script>
 </body>
 </html>
