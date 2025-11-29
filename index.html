@@ -122,37 +122,40 @@
       gap: 0.6rem;
     }
 
-    /* CONTENEDOR DE LOGO ANIMADO (sin círculo) */
-    .brand-logo-anim {
+       .brand-logo-anim {
       position: relative;
-      height: 40px;          /* ajusta alto del logo aquí */
+      height: 40px;        /* aquí controlas el alto del logo */
       display: inline-block;
       overflow: visible;
     }
-
+    
+    /* Ambos logos en display normal (el 1 define el ancho) */
     .logo-frame {
       height: 100%;
       width: auto;
       object-fit: contain;
       display: block;
-      position: absolute;
-      inset: 0;
-      margin: auto;
     }
-
+    
     /* Logo base (LogoA1) */
     .logo-frame-1 {
+      position: relative;
       z-index: 1;
       opacity: 1;
       animation: logoA1 8s ease-in-out infinite;
     }
-
-    /* Logo superior (LogoA2) */
+    
+    /* Logo superior (LogoA2) superpuesto encima del primero */
     .logo-frame-2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
       z-index: 2;
       opacity: 0;
       animation: logoA2 8s ease-in-out infinite;
     }
+
 
     /* Ciclo: A1 -> A2 -> pausa -> A2 -> A1 -> pausa */
     @keyframes logoA1 {
