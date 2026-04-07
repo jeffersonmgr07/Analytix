@@ -886,6 +886,119 @@
       font-size: 0.95rem;
     }
 
+
+    /* SHOWCASE MODERNO */
+    .showcase {
+      padding-top: 1rem;
+      background:
+        radial-gradient(circle at 0% 20%, rgba(14,165,233,0.16), transparent 45%),
+        radial-gradient(circle at 100% 10%, rgba(99,102,241,0.18), transparent 50%),
+        linear-gradient(180deg, rgba(3,7,18,0.98), rgba(2,6,23,1));
+      border-top: 1px solid rgba(71, 85, 105, 0.35);
+      border-bottom: 1px solid rgba(71, 85, 105, 0.35);
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .showcase-card {
+      position: relative;
+      border-radius: 1.2rem;
+      padding: 1rem;
+      min-height: 280px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: linear-gradient(170deg, rgba(15,23,42,0.82), rgba(15,23,42,0.96));
+      box-shadow: 0 18px 45px rgba(2, 6, 23, 0.7);
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      isolation: isolate;
+    }
+
+    .showcase-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.45;
+      z-index: -2;
+      transform: scale(1.02);
+    }
+
+    .showcase-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(2,6,23,0.08) 20%, rgba(2,6,23,0.92));
+      z-index: -1;
+    }
+
+    .showcase-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(129, 140, 248, 0.9);
+      box-shadow: 0 24px 60px rgba(30, 64, 175, 0.4);
+    }
+
+    .showcase-card.resto::before { background-image: url('img/banner1.png'); }
+    .showcase-card.services::before { background-image: url('img/banner2.png'); }
+    .showcase-card.store::before { background-image: url('img/Banner1.jpg'); }
+
+    .showcase-chip {
+      align-self: flex-start;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border-radius: 999px;
+      padding: 0.18rem 0.55rem;
+      color: #dbeafe;
+      border: 1px solid rgba(191, 219, 254, 0.5);
+      background: rgba(30, 64, 175, 0.3);
+      margin-bottom: 0.45rem;
+    }
+
+    .showcase-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .showcase-card p {
+      font-size: 0.86rem;
+      color: #cbd5e1;
+    }
+
+    .showcase-metrics {
+      margin-top: 1.3rem;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+
+    .metric {
+      border-radius: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.88);
+      padding: 0.7rem 0.8rem;
+      text-align: center;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.05rem;
+      color: #c4b5fd;
+      letter-spacing: -0.01em;
+    }
+
+    .metric span {
+      font-size: 0.73rem;
+      color: var(--text-muted);
+    }
+
     /* ABOUT */
     .about {
       background: radial-gradient(circle at top, rgba(15,23,42,0.9), rgba(2,6,23,1));
@@ -1894,6 +2007,14 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .showcase-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .showcase-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .hero-calendar-row {
         grid-template-columns: minmax(0, 1fr);
       }
@@ -1934,7 +2055,8 @@
       }
 
       .pricing-grid,
-      .products-grid-sim {
+      .products-grid-sim,
+      .showcase-metrics {
         grid-template-columns: minmax(0, 1fr);
       }
 
@@ -2001,6 +2123,7 @@
 
           <a href="#about">Quiénes somos</a>
           <a href="#how">Cómo funciona</a>
+          <a href="#showcase">UX moderno</a>
           <a href="#testimonials">Testimonios</a>
           <a href="#demo" class="nav-cta">Solicitar demo</a>
           <a
@@ -2035,6 +2158,7 @@
 
         <a href="#about">Quiénes somos</a>
         <a href="#how">Cómo funciona</a>
+        <a href="#showcase">UX moderno</a>
         <a href="#testimonials">Testimonios</a>
         <a href="#demo">Solicitar demo</a>
       </nav>
@@ -2182,6 +2306,44 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="showcase" id="showcase">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Experiencias web</div>
+            <h2 class="section-title">Diseño moderno inspirado en plantillas premium</h2>
+            <p class="section-description">
+              Rediseñamos tu presencia digital con un estilo más visual, bloques claros de conversión
+              y una navegación pensada para vender desde el primer clic.
+            </p>
+          </div>
+
+          <div class="showcase-grid">
+            <article class="showcase-card resto">
+              <span class="showcase-chip">Restaurantes</span>
+              <h3>Menú visual + pedidos por WhatsApp</h3>
+              <p>Portadas envolventes, categorías claras y CTA inmediatos para subir conversiones.</p>
+            </article>
+            <article class="showcase-card services">
+              <span class="showcase-chip">Servicios</span>
+              <h3>Reserva de citas en minutos</h3>
+              <p>Flujos simples de agenda con formularios claros y bloques de confianza.</p>
+            </article>
+            <article class="showcase-card store">
+              <span class="showcase-chip">E-commerce</span>
+              <h3>Tienda limpia y enfocada en compra</h3>
+              <p>Tarjetas de producto más modernas, jerarquía visual y checkout orientado a móvil.</p>
+            </article>
+          </div>
+
+          <div class="showcase-metrics" aria-label="Métricas destacadas">
+            <div class="metric"><strong>+38%</strong><span>Más clics en CTA</span></div>
+            <div class="metric"><strong>2.1x</strong><span>Más interacción móvil</span></div>
+            <div class="metric"><strong>-27%</strong><span>Menos rebote inicial</span></div>
+            <div class="metric"><strong>+44%</strong><span>Consultas por WhatsApp</span></div>
           </div>
         </div>
       </section>
